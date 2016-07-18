@@ -9,11 +9,14 @@ using System.Web.Mvc;
 //using BookRepository.Models;
 using BookRepository.Interfaces;
 using BookRepository.Database;
+using PagedList;
 
 namespace BookRepository.Controllers
 {
     public class BooksController : Controller
     {
+
+        int PAGE_SIZE = 3;
 
         IBookRepository db;
 
@@ -22,10 +25,11 @@ namespace BookRepository.Controllers
             db = bookRepository;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var books = db.SelectAll();
-            return View(books);
+            int pageNumber = (page ?? 1);
+            return View(books.OrderBy(x => x.Id).ToPagedList(pageNumber, PAGE_SIZE));
         }
 
         public ActionResult Details(int? id)
