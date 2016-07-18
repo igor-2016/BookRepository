@@ -1,0 +1,28 @@
+﻿@model BookRepository.Database.Genre
+
+@{
+    ViewBag.Title = "Подробности жанра";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Подробности о жанре</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        
+    </dl>
+    <p style="color:red">@ViewBag.Error</p>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Назад к списку жанров", "Index")
+</p>

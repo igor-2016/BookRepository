@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Книжный каталог";
+}
+
+<div class="jumbotron">
+    <h1>Книжный каталог</h1>
+    <p class="lead">Добро пожаловать в систему учёта книг!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Каталог</h2>
+        <p>Здесь можно просмотреть список книг, добавить, удалить или редактировать информацию о книге</p>
+        <p>Книг в каталоге: @ViewBag.TotalBooks</p>
+
+        <p>@Html.ActionLink("Перейти к каталогу книг", "Index", "Books")</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Жанры</h2>
+        <p>Здесь можно добавить новые жанры или отредактировать существующие</p>
+        <p>Жанров: @ViewBag.TotalGenres</p>
+        <p>@Html.ActionLink("Перейти к списку жанров", "Index", "Genres")</p>
+    </div>
+</div>
