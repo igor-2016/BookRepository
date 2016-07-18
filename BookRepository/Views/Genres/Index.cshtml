@@ -1,4 +1,6 @@
-﻿@model IEnumerable<BookRepository.Database.Genre>
+﻿@using PagedList.Mvc;
+
+@model PagedList.IPagedList<BookRepository.Database.Genre>
 
 @{
     ViewBag.Title = "Жанры";
@@ -10,10 +12,13 @@
 <p>
     @Html.ActionLink("Создать новый", "Create")
 </p>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
         </th>
         <th></th>
     </tr>
@@ -32,3 +37,8 @@
 }
 
 </table>
+
+
+
+
+

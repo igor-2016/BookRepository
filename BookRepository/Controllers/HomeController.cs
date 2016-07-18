@@ -28,15 +28,11 @@ namespace BookRepository.Controllers
 
         public ActionResult BookListing()
         {
-            ViewBag.Message = "Book Listing";
-
             return View();
         }
 
         public ActionResult GenreListing()
         {
-            ViewBag.Message = "Genre Listing";
-
             return View();
         }
     }

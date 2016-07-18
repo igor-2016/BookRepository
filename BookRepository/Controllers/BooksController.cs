@@ -13,10 +13,9 @@ using PagedList;
 
 namespace BookRepository.Controllers
 {
-    public class BooksController : Controller
+    public class BooksController : ControllerBase
     {
 
-        int PAGE_SIZE = 3;
 
         IBookRepository db;
 
